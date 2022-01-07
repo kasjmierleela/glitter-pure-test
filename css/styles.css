@@ -373,6 +373,7 @@ p, ul{
 
 .section__title{
   text-align: center;
+  will-change: transform;
 }
 
 .scroll-into-view{
