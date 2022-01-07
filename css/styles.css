@@ -167,7 +167,7 @@ p, ul{
   }
 
   .is-h2{
-    font-size: 2.2rem;
+    font-size: 2rem;
     line-height: 1.175;
   }
 
@@ -431,7 +431,7 @@ p, ul{
 
 @media only screen and (max-width: 400px) {
   .nav-logo__wrapper{
-    width: 18em;
+    width: 16em;
   }
   .nav-top-bar{
     padding-top: 1.5em !important;
@@ -2234,7 +2234,7 @@ p, ul{
 @media only screen and (max-width: 400px) {
   #loading-lottie{
     margin-top: -8vh;
-    width: 16em;
+    width: 14em;
   }
 }
 
