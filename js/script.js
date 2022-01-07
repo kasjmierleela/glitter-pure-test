@@ -48,6 +48,7 @@ window.addEventListener('scroll', function(event) {
 
 
 //navigation interaction
+const body = document.querySelector("body");
 const navButton = document.querySelector(".nav-button");
 const closeButton = document.querySelector(".nav-panel__close-button");
 const navPanelWrapper = document.querySelector(".nav-panel-wrapper");
@@ -56,6 +57,7 @@ navButton.addEventListener("click", function(elem) {
   navPanelWrapper.style.pointerEvents = "auto";
   navPanelWrapper.classList.add("addBlur");
   navPanelWrapper.classList.add("show");
+  body.style.overflow = "hidden";
 });
 
 closeButton.addEventListener("click", closePanel);
@@ -65,6 +67,7 @@ function closePanel() {
   navPanelWrapper.style.pointerEvents = "none";
   navPanelWrapper.classList.remove("addBlur");
   navPanelWrapper.classList.remove("show");
+  body.style.overflow = "auto";
 }
 
 

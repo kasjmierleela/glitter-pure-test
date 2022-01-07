@@ -1,21 +1,3 @@
-@media only screen and (max-width: 1440px) {
-
-}
-
-@media only screen and (max-width: 1080px) {
-
-}
-
-@media only screen and (max-width: 800px) {
-
-}
-
-@media only screen and (max-width: 400px) {
-
-}
-
-
-
 
 /* base */
 
@@ -40,7 +22,6 @@ body{
   overflow-y: scroll;
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none;  /* Internet Explorer 10+ */
-  font-size: 1vw; /* all the em sizes will respond to screen width */
 }
 
 body::-webkit-scrollbar { /* WebKit */
@@ -433,14 +414,27 @@ p, ul{
 }
 
 @media only screen and (max-width: 800px) {
+  .nav-top-bar{
+    padding-top: 3em !important;
+  }
+}
+
+@media only screen and (max-width: 800px) {
   .nav-logo__wrapper{
-    width: 32em;
+    width: 20em;
+    padding-right: 2em;
+  }
+  .nav-top-bar{
+    padding-top: 2em !important;
   }
 }
 
 @media only screen and (max-width: 400px) {
   .nav-logo__wrapper{
-    width: 40em;
+    width: 20em;
+  }
+  .nav-top-bar{
+    padding-top: 1.5em !important;
   }
 }
 
@@ -497,7 +491,7 @@ p, ul{
   height: 100vh;
   top: 0;
   background-color: rgba(0, 0, 0, 0.1);
-  z-index: 1000;
+  z-index: 3000;
   opacity: 0;
   -webkit-backdrop-filter: blur(0px);
   backdrop-filter: blur(0px);
@@ -549,7 +543,7 @@ p, ul{
   .nav-panel{
     width: 75%;
     padding-bottom: 2rem;
-    padding-top: 6rem;
+    padding-top: 4rem;
   }
 }
 
@@ -580,7 +574,14 @@ p, ul{
 @media only screen and (max-width: 800px) {
   .nav-panel__row{
     grid-template-columns: 1fr;
-    padding: 3em 3em;
+    padding: 2em 2em;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .nav-panel__row{
+    grid-template-columns: 1fr;
+    padding: 1.5em 1.5em;
   }
 }
 
@@ -609,6 +610,12 @@ p, ul{
 @media only screen and (max-width: 500px) {
   .nav-panel__row-links-wrapper.has-multiple-items{
     grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .nav-panel__row-links-wrapper.has-multiple-items{
+    grid-template-columns: 1fr 1fr;
   }
 }
 
@@ -737,9 +744,9 @@ p, ul{
   }
 
   .hero__token.second{
-    width: 32em;
+    width: 31em;
     bottom: -57%;
-    left: -4%;
+    left: -6%;
   }
 
   @keyframes oscillateSecond {
@@ -752,7 +759,7 @@ p, ul{
 
 @media only screen and (max-width: 1080px) {
   .hero__token.first{
-    width: 11em;
+    width: 9em;
     top: -4.4%;
     right: 4%;
   }
@@ -765,21 +772,21 @@ p, ul{
 
   .hero__token.second{
     width: 30em;
-    bottom: -50%;
-    left: -15%;
+    bottom: -56%;
+    left: -20%;
   }
 
   @keyframes oscillateSecond {
     to {
-      bottom: -40%;
-      left: -10%;
+      bottom: -48%;
+      left: -15%;
     }
   }
 }
 
 @media only screen and (max-width: 800px) {
   .hero__token.first{
-    width: 8em;
+    width: 7em;
     top: -8.4%;
     right: 2%;
   }
@@ -793,13 +800,40 @@ p, ul{
   .hero__token.second{
     width: 27em;
     bottom: -50%;
-    left: -25%;
+    left: -30%;
   }
 
   @keyframes oscillateSecond {
     to {
       bottom: -45%;
-      left: -22%;
+      left: -25%;
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .hero__token.first{
+    width: 6em;
+    top: -8.4%;
+    right: 2%;
+  }
+  @keyframes oscillateFirst {
+    to {
+      top: -2%;
+      right: 5%;
+    }
+  }
+
+  .hero__token.second{
+    width: 22em;
+    bottom: -42%;
+    left: -35%;
+  }
+
+  @keyframes oscillateSecond {
+    to {
+      bottom: -38%;
+      left: -30%;
     }
   }
 }
@@ -819,6 +853,25 @@ p, ul{
     to {
       bottom: -25%;
       left: -30%;
+    }
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .hero__token.first{
+    width: 5em;
+  }
+
+  .hero__token.second{
+    width: 18em;
+    bottom: -40%;
+    left: -55%;
+  }
+
+  @keyframes oscillateSecond {
+    to {
+      bottom: -34%;
+      left: -45%;
     }
   }
 }
@@ -999,6 +1052,13 @@ p, ul{
   grid-row-gap: 3em;
 }
 
+@media only screen and (max-width: 1440px) {
+  .logo__grid{
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 3em;
+    grid-row-gap: 3em;
+  }
+}
 
 @media only screen and (max-width: 900px) {
   .logo__grid{
@@ -1012,6 +1072,14 @@ p, ul{
   .logo__grid{
     grid-template-columns: 1fr 1fr;
     grid-column-gap: 3em;
+    grid-row-gap: 3em;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .logo__grid{
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 1.5em;
     grid-row-gap: 3em;
   }
 }
@@ -1175,9 +1243,9 @@ p, ul{
   width: 7.5em;
 }
 
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 1440px) {
   .logo__grid-item{
-    width: 11em;
+    width: 9em;
   }
 
   /* investors */
@@ -1188,299 +1256,606 @@ p, ul{
   }
 
   .polygon{
-    width: 11em;
+    width: 9em;
   }
 
   .unilayer{
-    width: 11em;
+    width: 9em;
   }
 
   .exnetwork{
-    width: 10em;
+    width: 7.5em;
   }
 
   .space-capital{
-    width: 9em;
-  }
-
-  .bullish-block{
-    width: 9em;
-  }
-
-  .zbs{
-    width: 12em;
-  }
-
-  .legion{
-    width: 11em;
-  }
-
-  .oig{
-    width: 8em;
-  }
-
-  .thinksmart{
-    width: 12.5em;
-  }
-
-  .kangaroo{
-    width: 10.5em;
-  }
-
-  .coincu{
-    width: 13.5em;
-  }
-
-  .dutch{
-    width: 12em;
-  }
-
-  .avg{
-    width: 9.5em;
-  }
-
-  .cspdao{
-    width: 10em;
-  }
-
-  .black-dragon{
-    width: 12.5em;
-  }
-
-  .crt{
-    width: 14em;
-  }
-
-  .brotherhood{
-    width: 8em;
-  }
-
-  .ava{
-    width: 10.5em;
-  }
-
-  .coinpublic{
-    width: 13.5em;
-  }
-
-  .r8{
-    width: 10em;
-  }
-
-  .maxx{
-    width: 12em;
-  }
-
-  .onebit{
-    width: 10.5em;
-  }
-
-  .inv{
-    width: 11em;
-  }
-
-  .diversity{
     width: 7em;
   }
 
+  .bullish-block{
+    width: 7em;
+  }
+
+  .zbs{
+
+  }
+
+  .legion{
+
+  }
+
+  .oig{
+    width: 6.5em;
+  }
+
+  .thinksmart{
+    width: 9.5em;
+  }
+
+  .kangaroo{
+    width: 8em;
+  }
+
+  .coincu{
+    width: 11em;
+  }
+
+  .dutch{
+    width: 9.5em;
+  }
+
+  .avg{
+    width: 8em;
+  }
+
+  .cspdao{
+    width: 8.5em;
+  }
+
+  .black-dragon{
+    width: 11em;
+  }
+
+  .crt{
+    width: 12em;
+  }
+
+  .brotherhood{
+    width: 6.5em;
+  }
+
+  .ava{
+
+  }
+
+  .coinpublic{
+    width: 11.5em;
+  }
+
+  .r8{
+    width: 8.5em;
+  }
+
+  .maxx{
+    width: 10em;
+  }
+
+  .onebit{
+
+  }
+
+  .inv{
+    width: 8.5em;
+  }
+
+  .diversity{
+    width: 5.5em;
+  }
+
   .parea{
-    width: 9em;
+    width: 7.5em;
   }
 
   .mh-ventures{
-    width: 12em;
+
   }
+
 
 
   /* partners */
 
   .algorand{
-    width: 12em;
+    width: 9.5em;
   }
 
   .solster{
-    width: 11.5em;
+
   }
 
   .supra{
-    width: 11.5em;
+
   }
 
   .aegis{
-    width: 12em;
+    width: 9.5em;
   }
 
   .p2pb2b{
-    width: 12em;
+    width: 9.5em;
   }
 
   .coinstore{
-    width: 12.5em;
+    width: 10em;
   }
 
   .change-now{
-    width: 9em;
+    width: 7em;
   }
 
   .safe-launch{
-    width: 9.5em;
+    width: 7.5em;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .logo__grid-item{
+    width: 7.5em;
+  }
+
+  /* investors */
+  .algorand-f{
+  }
+
+  .cudos{
+  }
+
+  .polygon{
+    width: 8em;
+  }
+
+  .unilayer{
+    width: 8em;
+  }
+
+  .exnetwork{
+    width: 6.5em;
+  }
+
+  .space-capital{
+    width: 6em;
+  }
+
+  .bullish-block{
+    width: 6em;
+  }
+
+  .zbs{
+
+  }
+
+  .legion{
+
+  }
+
+  .oig{
+    width: 5.5em;
+  }
+
+  .thinksmart{
+    width: 8.5em;
+  }
+
+  .kangaroo{
+    width: 7em;
+  }
+
+  .coincu{
+    width: 10em;
+  }
+
+  .dutch{
+    width: 8.5em;
+  }
+
+  .avg{
+    width: 7em;
+  }
+
+  .cspdao{
+
+  }
+
+  .black-dragon{
+    width: 10em;
+  }
+
+  .crt{
+    width: 11em;
+  }
+
+  .brotherhood{
+    width: 5.5em;
+  }
+
+  .ava{
+
+  }
+
+  .coinpublic{
+    width: 10.5em;
+  }
+
+  .r8{
+
+  }
+
+  .maxx{
+    width: 9em;
+  }
+
+  .onebit{
+
+  }
+
+  .inv{
+    width: 7.5em;
+  }
+
+  .diversity{
+    width: 4.5em;
+  }
+
+  .parea{
+    width: 6.5em;
+  }
+
+  .mh-ventures{
+
+  }
+
+
+
+  /* partners */
+
+  .algorand{
+    width: 8.5em;
+  }
+
+  .solster{
+    width: 8.5em;
+  }
+
+  .supra{
+
+  }
+
+  .aegis{
+    width: 8.5em;
+  }
+
+  .p2pb2b{
+    width: 8.5em;
+  }
+
+  .coinstore{
+    width: 9em;
+  }
+
+  .change-now{
+    width: 6em;
+  }
+
+  .safe-launch{
+    width: 6.5em;
   }
 }
 
 @media only screen and (max-width: 600px) {
-  .logo__grid{
-    grid-template-columns: 1fr 1fr;
-    grid-column-gap: 3em;
-    grid-row-gap: 3em;
-  }
-
   .logo__grid-item{
-    width: 14em;
+    width: 7em;
   }
 
   /* investors */
   .algorand-f{
+    width: 6.5em;
   }
 
   .cudos{
+    width: 7.5em;
   }
 
   .polygon{
-    width: 14em;
+    width: 7.5em;
   }
 
   .unilayer{
-    width: 14em;
+    width: 7.5em;
   }
 
   .exnetwork{
-    width: 12em;
+    width: 6em;
   }
 
   .space-capital{
-    width: 11em;
+    width: 5.5em;
   }
 
   .bullish-block{
-    width: 11em;
+    width: 5.5em;
   }
 
   .zbs{
-    width: 14em;
+
   }
 
   .legion{
-    width: 13em;
+
   }
 
   .oig{
-    width: 10em;
+    width: 5em;
   }
 
   .thinksmart{
-    width: 14.5em;
+    width: 8em;
   }
 
   .kangaroo{
-    width: 12.5em;
+    width: 6.5em;
   }
 
   .coincu{
-    width: 15.5em;
+    width: 9.5em;
   }
 
   .dutch{
-    width: 14em;
+    width: 8em;
   }
 
   .avg{
-    width: 11.5em;
+    width: 6.5em;
   }
 
   .cspdao{
-    width: 12em;
+
   }
 
   .black-dragon{
-    width: 14.5em;
+    width: 9.5em;
   }
 
   .crt{
-    width: 16em;
+    width: 10.5em;
   }
 
   .brotherhood{
-    width: 10em;
+    width: 5em;
   }
 
   .ava{
-    width: 12.5em;
+
   }
 
   .coinpublic{
-    width: 15.5em;
+    width: 10em;
   }
 
   .r8{
-    width: 12em;
+
   }
 
   .maxx{
-    width: 14em;
+    width: 8.5em;
   }
 
   .onebit{
-    width: 12.5em;
+
   }
 
   .inv{
-    width: 13em;
+    width: 7em;
   }
 
   .diversity{
-    width: 9em;
+    width: 4em;
   }
 
   .parea{
-    width: 11em;
+    width: 6em;
   }
 
   .mh-ventures{
-    width: 14em;
+
   }
+
+
 
   /* partners */
 
   .algorand{
-    width: 14em;
+    width: 8em;
   }
 
   .solster{
-    width: 13.5em;
+    width: 8em;
   }
 
   .supra{
-    width: 13.5em;
+
   }
 
   .aegis{
-    width: 14em;
+    width: 8em;
   }
 
   .p2pb2b{
-    width: 14em;
+    width: 8em;
   }
 
   .coinstore{
-    width: 14.5em;
+    width: 8.5em;
   }
 
   .change-now{
-    width: 11em;
+    width: 5.5em;
   }
 
   .safe-launch{
-    width: 11.5em;
+    width: 6em;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .logo__grid-item{
+    width: 6em;
+  }
+
+  /* investors */
+  .algorand-f{
+    width: 5.5em;
+  }
+
+  .cudos{
+    width: 6.5em;
+  }
+
+  .polygon{
+    width: 6.5em;
+  }
+
+  .unilayer{
+    width: 6.5em;
+  }
+
+  .exnetwork{
+    width: 5em;
+  }
+
+  .space-capital{
+    width: 4.5em;
+  }
+
+  .bullish-block{
+    width: 4.5em;
+  }
+
+  .zbs{
+
+  }
+
+  .legion{
+
+  }
+
+  .oig{
+    width: 4em;
+  }
+
+  .thinksmart{
+    width: 7em;
+  }
+
+  .kangaroo{
+    width: 5.5em;
+  }
+
+  .coincu{
+    width: 8.5em;
+  }
+
+  .dutch{
+    width: 7em;
+  }
+
+  .avg{
+    width: 5.5em;
+  }
+
+  .cspdao{
+
+  }
+
+  .black-dragon{
+    width: 8.5em;
+  }
+
+  .crt{
+    width: 9.5em;
+  }
+
+  .brotherhood{
+    width: 4em;
+  }
+
+  .ava{
+
+  }
+
+  .coinpublic{
+    width: 9em;
+  }
+
+  .r8{
+
+  }
+
+  .maxx{
+    width: 7.5em;
+  }
+
+  .onebit{
+
+  }
+
+  .inv{
+    width: 6em;
+  }
+
+  .diversity{
+    width: 3em;
+  }
+
+  .parea{
+    width: 5em;
+  }
+
+  .mh-ventures{
+
+  }
+
+
+
+  /* partners */
+
+  .algorand{
+    width: 7em;
+  }
+
+  .solster{
+    width: 7em;
+  }
+
+  .supra{
+
+  }
+
+  .aegis{
+    width: 7em;
+  }
+
+  .p2pb2b{
+    width: 7em;
+  }
+
+  .coinstore{
+    width: 7.5em;
+  }
+
+  .change-now{
+    width: 4.5em;
+  }
+
+  .safe-launch{
+    width: 5em;
   }
 }
 
@@ -1493,6 +1868,9 @@ p, ul{
   grid-template-columns: 1fr 1fr 1fr;
   grid-column-gap: 3em;
   grid-row-gap: 4em;
+  flex-shrink: 0;
+  flex-grow: 0;
+  flex-basis: auto;
 }
 
 
@@ -1512,7 +1890,7 @@ p, ul{
 
 @media only screen and (max-width: 1440px) {
   .team__grid{
-    grid-column-gap: 2em;
+    grid-column-gap: 1em;
     grid-row-gap: 3em;
   }
   .team__grid-item{
@@ -1528,8 +1906,8 @@ p, ul{
     grid-row-gap: 3em;
   }
   .team__grid-item{
-    grid-column-gap: 2.5em;
-    grid-template-columns: 0.75fr 1fr;
+    grid-column-gap: 1.5em;
+    grid-template-columns: 0.7fr 1fr;
     padding-right: 2em;
   }
 }
@@ -1541,7 +1919,7 @@ p, ul{
     grid-row-gap: 3em;
   }
   .team__grid-item{
-    grid-column-gap: 2.5em;
+    grid-column-gap: 1em;
     grid-template-columns: 0.8fr 1fr;
     padding-right: 1em;
   }
@@ -1550,21 +1928,25 @@ p, ul{
 @media only screen and (max-width: 700px) {
   .team__grid{
     grid-template-columns: 1fr;
-    grid-row-gap: 4em;
+    grid-row-gap: 3em;
     max-width: 90%;
     margin: 0 auto;
   }
   .team__grid-item{
-    grid-column-gap: 4em;
+    grid-column-gap: 2.5em;
     grid-template-columns: 0.5fr 1fr;
-    padding-right: 0em;
+    padding-right: 4em;
   }
 }
 
 @media only screen and (max-width: 500px) {
+  .team__grid{
+    grid-row-gap: 1.5em;
+  }
   .team__grid-item{
-    grid-column-gap: 4em;
-    grid-template-columns: 0.5fr 1fr;
+    grid-column-gap: 1.5em;
+    grid-template-columns: 0.7fr 1fr;
+    padding-right: 0em;
   }
 }
 
@@ -1621,36 +2003,28 @@ p, ul{
     max-width: 70%;
     margin: 0 auto;
     grid-template-columns: 1fr 1fr;
-    grid-column-gap: 4em;
+    grid-column-gap: 3em;
   }
   .news__grid-item{
-    margin-bottom: 4em;
-    padding: 2.5em 2.6em 2.5em;
+    margin-bottom: 3em;
+    padding: 2em 2.4em 2.2em;
   }
   .news__grid-item-icon{
-    width: 4.5em;
+    width: 4em;
   }
 }
 
 @media only screen and (max-width: 900px) {
   .news__grid{
     max-width: 90%;
-    margin: 0 auto;
-    grid-template-columns: 1fr 1fr;
-    grid-column-gap: 4em;
-  }
-  .news__grid-item{
-    margin-bottom: 4em;
-    padding: 3em 2.8em 3em;
-  }
-  .news__grid-item-icon{
-    width: 6em;
   }
 }
 
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 700px) {
   .news__grid{
-    max-width: 100%;
+    max-width: 90%;
+    margin: 0 auto;
+    grid-template-columns: 1fr;
   }
 }
 
@@ -1685,23 +2059,31 @@ p, ul{
 @media only screen and (max-width: 1080px) {
   .footer-socials-grid{
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-row-gap: 4em;
+    grid-row-gap: 3em;
     width: 70%;
-  }
-  .footer-socials__item{
-    width: 6em;
-    padding: 1em;
   }
 }
 
 @media only screen and (max-width: 800px) {
   .footer-socials-grid{
     width: 90%;
-    grid-row-gap: 6em;
+    grid-row-gap: 3em;
   }
   .footer-socials__item{
-    width: 7em;
-    padding: 0.5em;
+    width: 4em;
+    padding: 0.6em;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .footer-socials-grid{
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 100%;
+    grid-row-gap: 3em;
+  }
+  .footer-socials__item{
+    width: 3.5em;
+    padding: 0.6em;
   }
 }
 
@@ -1740,58 +2122,56 @@ p, ul{
 
 @media only screen and (max-width: 1360px) {
   .footer__token{
-    bottom: -20%;
-    left: -20%;
+    bottom: -25%;
+    left: -25%;
   }
 
   @keyframes oscillateThird {
     to {
-      bottom: -15%;
-      left: -12%;
+      bottom: -20%;
+      left: -15%;
     }
   }
 }
 
 @media only screen and (max-width: 1080px) {
   .footer__token{
-    bottom: -20%;
-    left: -20%;
+    bottom: -25%;
+    left: -35%;
   }
 
   @keyframes oscillateThird {
     to {
-      bottom: -10%;
-      left: -12%;
+      bottom: -20%;
+      left: -30%;
     }
   }
 }
 
 @media only screen and (max-width: 800px) {
   .footer__token{
-    width: 98em;
-    bottom: -20%;
-    left: -30%;
+    bottom: -25%;
+    left: -65%;
   }
 
   @keyframes oscillateThird {
     to {
-      bottom: -10%;
-      left: -25%;
+      bottom: -20%;
+      left: -50%;
     }
   }
 }
 
 @media only screen and (max-width: 400px) {
   .footer__token{
-    width: 108em;
-    bottom: -10%;
-    left: -40%;
+    bottom: -20%;
+    left: -85%;
   }
 
   @keyframes oscillateThird {
     to {
-      bottom: -5%;
-      left: -35%;
+      bottom: -10%;
+      left: -60%;
     }
   }
 }
