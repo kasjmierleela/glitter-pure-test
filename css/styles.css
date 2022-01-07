@@ -167,8 +167,8 @@ p, ul{
   }
 
   .is-h2{
-    font-size: 2rem;
-    line-height: 1.175;
+    font-size: 1.5rem;
+    line-height: 1.155;
   }
 
   .is-h3{
@@ -177,12 +177,12 @@ p, ul{
   }
 
   .is-h4{
-    font-size: 1.1rem;
-    line-height: 1.5;
+    font-size: 1rem;
+    line-height: 1.4;
   }
 
   .is-h5{
-    font-size: 1rem;
+    font-size: 0.9rem;
     line-height: 1.5;
   }
 
@@ -2225,16 +2225,17 @@ p, ul{
 }
 
 @media only screen and (max-width: 800px) {
+  #loading-wrapper{
+    height: 100%;
+  }
   #loading-lottie{
-    margin-top: -5vh;
-    width: 14em;
+    width: 11em;
   }
 }
 
 @media only screen and (max-width: 400px) {
   #loading-lottie{
-    margin-top: -8vh;
-    width: 14em;
+    width: 10em;
   }
 }
 
