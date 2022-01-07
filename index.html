@@ -712,10 +712,14 @@
 <script>
   //loading lottie animation - runs on homepage only
   document.addEventListener("DOMContentLoaded", ready);
+
+  const bodyElement = document.querySelector("body");
   const lottieWrapper = document.querySelector("#loading-lottie");
   const loadingWrapper = document.querySelector("#loading-wrapper");
 
   function ready() {
+
+    bodyElement.style.overflow = "hidden";
 
     let lottiePlayer = lottie.loadAnimation({
       container: lottieWrapper, // the dom element that will contain the animation
@@ -740,6 +744,7 @@
       loadingWrapper.style.opacity = "0";
     }, 5200);
     setTimeout(function() {
+      bodyElement.style.overflow = "auto";
       loadingWrapper.style.display = "none";
       lottiePlayer.stop();
     }, 6000);
