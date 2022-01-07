@@ -413,7 +413,7 @@ p, ul{
   width: 34em;
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 1080px) {
   .nav-top-bar{
     padding-top: 3em !important;
   }
@@ -431,7 +431,7 @@ p, ul{
 
 @media only screen and (max-width: 400px) {
   .nav-logo__wrapper{
-    width: 20em;
+    width: 18em;
   }
   .nav-top-bar{
     padding-top: 1.5em !important;
@@ -550,6 +550,8 @@ p, ul{
 @media only screen and (max-width: 800px) {
   .nav-panel{
     width: 90%;
+    max-height: 55%;
+    margin-top: -6vh;
   }
 }
 
@@ -663,10 +665,6 @@ p, ul{
   max-width: 70ch;
   margin: 0 auto;
   text-align: center;
-}
-
-@media only screen and (max-width: 1440px) {
-
 }
 
 @media only screen and (max-width: 1080px) {
@@ -2094,8 +2092,8 @@ p, ul{
     grid-row-gap: 3em;
   }
   .footer-socials__item{
-    width: 3.1em;
-    padding: 0.5em;
+    width: 2.2em;
+    padding: 0em;
   }
 }
 
@@ -2229,14 +2227,14 @@ p, ul{
 @media only screen and (max-width: 800px) {
   #loading-lottie{
     margin-top: -5vh;
-    width: 18em;
+    width: 14em;
   }
 }
 
 @media only screen and (max-width: 400px) {
   #loading-lottie{
     margin-top: -8vh;
-    width: 22em;
+    width: 16em;
   }
 }
 
