@@ -160,14 +160,14 @@ p, ul{
   }
 }
 
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 440px) {
   .is-h1{
     font-size: 3.2rem;
     line-height: 1;
   }
 
   .is-h2{
-    font-size: 1.5rem;
+    font-size: 1.75rem;
     line-height: 1.155;
   }
 
@@ -429,9 +429,9 @@ p, ul{
   }
 }
 
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 440px) {
   .nav-logo__wrapper{
-    width: 16em;
+    width: 13em;
   }
   .nav-top-bar{
     padding-top: 1.5em !important;
@@ -855,21 +855,21 @@ p, ul{
   }
 }
 
-@media only screen and (max-width: 375px) {
+@media only screen and (max-width: 440px) {
   .hero__token.first{
-    width: 5em;
+    width: 4em;
   }
 
   .hero__token.second{
-    width: 18em;
-    bottom: -35%;
-    left: -65%;
+    width: 14em;
+    bottom: -45%;
+    left: -55%;
   }
 
   @keyframes oscillateSecond {
     to {
-      bottom: -29%;
-      left: -50%;
+      bottom: -39%;
+      left: -30%;
     }
   }
 }
@@ -2233,9 +2233,9 @@ p, ul{
   }
 }
 
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 440px) {
   #loading-lottie{
-    width: 10em;
+    width: 9em;
   }
 }
 
