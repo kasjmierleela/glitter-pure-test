@@ -89,9 +89,11 @@
         //prepare canvas for pdf page - using it's dimensions
         canvas.style.display = 'block';
         canvas.width = viewport.width * window.devicePixelRatio;
-        canvas.height = viewport.height;
+        canvas.height = viewport.height * window.devicePixelRatio;
         canvas.setAttribute('id', canvasId);
         container.append(canvas);
+
+        console.log(window.devicePixelRatio);
 
         //get canvas context
         var context = canvas.getContext('2d');
