@@ -24,11 +24,30 @@
     #pdf-viewer::-webkit-scrollbar {
       display: none;
     }
+
+    .nav-pdf{
+      position: fixed;
+    }
+
+    .nav-pdf__top-bar{
+      padding-top: 5vw;
+      padding-left: 5vw;
+    }
   </style>
 
 </head>
 
 <body>
+
+  <header>
+    <nav class="nav-pdf">
+        <div class="nav-pdf__top-bar pt-4 pb-2">
+          <div class="nav-button button-outlined is-h4">
+            <p class="nav-button__text">Back To Website</p>
+          </div>
+        </div>
+    </nav>
+  </header>
 
   <div id="pdf-viewer" style="width:100vw;height:100%;overflow-y:scroll;"></div>
 
