@@ -88,7 +88,7 @@
 
         //prepare canvas for pdf page - using it's dimensions
         canvas.style.display = 'block';
-        canvas.width = viewport.width;
+        canvas.width = viewport.width * window.devicePixelRatio;
         canvas.height = viewport.height;
         canvas.setAttribute('id', canvasId);
         container.append(canvas);
