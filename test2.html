@@ -1,5 +1,6 @@
-<!-- pdf js version -->
-<!-- https://cdnjs.com/libraries/pdf.js/2.6.347 -->
+<!-- deck pdf width - 963px -->
+<!-- whitepaper pdf width - 595px -->
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -8,134 +9,92 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-
+  <title>Deck</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.6.347/pdf.min.js"></script>
 
+  <link href="css/styles.css" rel="stylesheet">
   <style>
-    #the-canvas {
-      width: 100%;
-      border: 1px solid black;
-      direction: ltr;
+    #pdf-viewer {
+      -ms-overflow-style: none;
+      /* IE and Edge */
+      scrollbar-width: none;
+      /* Firefox */
+    }
+
+    #pdf-viewer::-webkit-scrollbar {
+      display: none;
     }
   </style>
 
 </head>
 
 <body>
-  <h1>PDF.js 'Hello, world!' example</h1>
-  <div>
-    <button id="prev">Previous</button>
-    <button id="next">Next</button>
-    &nbsp; &nbsp;
-    <span>Page: <span id="page_num"></span> / <span id="page_count"></span></span>
-  </div>
 
-  <canvas id="the-canvas"></canvas>
+  <div id="pdf-viewer" style="width:100vw;height:100%;overflow-y:scroll;"></div>
 
   <script>
-    // If absolute URL from the remote server is provided, configure the CORS
-    // header on that server.
     var url = 'https://raw.githubusercontent.com/kasjmierleela/glitter-pure-test/78227cbf2de19dbd15a1b9edc852ebc23e4324df/Deck%20Glitter%20Finance_compressed-16Jan.pdf';
+    var peedeef;
 
-    // Loaded via <script> tag, create shortcut to access PDF.js exports.
-    var pdfjsLib = window['pdfjs-dist/build/pdf'];
-
-    // The workerSrc property shall be specified.
     pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.6.347/pdf.worker.min.js';
 
-    var pdfDoc = null,
-      pageNum = 1,
-      pageRendering = false,
-      pageNumPending = null,
-      scale = 0.8,
-      canvas = document.getElementById('the-canvas'),
-      ctx = canvas.getContext('2d');
+    //asynchronous download and render of PDF
+    var loadingTask = pdfjsLib.getDocument(url);
+    loadingTask.promise.then(function(pdf) {
+      peedeef = pdf;
+      console.log('PDF loaded');
 
-    /**
-     * Get page info from document, resize canvas accordingly, and render page.
-     * @param num Page number.
-     */
-    function renderPage(num) {
-      pageRendering = true;
-      // Using promise to fetch the page
-      pdfDoc.getPage(num).then(function(page) {
+      renderAllPages();
+
+    }, function(reason) {
+      console.error(reason);
+    });
+
+    function renderPage(pageNum) {
+      var pageNumber = pageNum;
+      peedeef.getPage(pageNumber).then(function(page) {
+        console.log('Page loaded');
+
+        //create an element and append to the viewer div
+        var container = document.getElementById('pdf-viewer');
+        var containerWidth = container.getBoundingClientRect().width;
+        var canvas = document.createElement('canvas');
+        var canvasId = 'pdf-viewer-' + pageNum;
+
+        var scale = (containerWidth / 963); //because pdf document width is 963px
+        console.log(scale);
         var viewport = page.getViewport({
           scale: scale
         });
-        canvas.height = viewport.height;
-        canvas.width = viewport.width;
 
-        // Render PDF page into canvas context
+        //prepare canvas for pdf page - using it's dimensions
+        canvas.style.display = 'block';
+        canvas.width = viewport.width;
+        canvas.height = viewport.height;
+        canvas.setAttribute('id', canvasId);
+        container.append(canvas);
+
+        //get canvas context
+        var context = canvas.getContext('2d');
+
+        //render PDF page into canvas context
         var renderContext = {
-          canvasContext: ctx,
+          canvasContext: context,
           viewport: viewport
         };
         var renderTask = page.render(renderContext);
-
-        // Wait for rendering to finish
         renderTask.promise.then(function() {
-          pageRendering = false;
-          if (pageNumPending !== null) {
-            // New page rendering is pending
-            renderPage(pageNumPending);
-            pageNumPending = null;
-          }
+          console.log('Page rendered');
         });
       });
-
-      // Update page counters
-      document.getElementById('page_num').textContent = num;
     }
 
-    /**
-     * If another page rendering in progress, waits until the rendering is
-     * finised. Otherwise, executes rendering immediately.
-     */
-    function queueRenderPage(num) {
-      if (pageRendering) {
-        pageNumPending = num;
-      } else {
-        renderPage(num);
+    function renderAllPages() {
+      for (var i = 1; i <= peedeef.numPages; i++) {
+        renderPage(i);
       }
     }
-
-    /**
-     * Displays previous page.
-     */
-    function onPrevPage() {
-      if (pageNum <= 1) {
-        return;
-      }
-      pageNum--;
-      queueRenderPage(pageNum);
-    }
-    document.getElementById('prev').addEventListener('click', onPrevPage);
-
-    /**
-     * Displays next page.
-     */
-    function onNextPage() {
-      if (pageNum >= pdfDoc.numPages) {
-        return;
-      }
-      pageNum++;
-      queueRenderPage(pageNum);
-    }
-    document.getElementById('next').addEventListener('click', onNextPage);
-
-    /**
-     * Asynchronously downloads PDF.
-     */
-    pdfjsLib.getDocument(url).promise.then(function(pdfDoc_) {
-      pdfDoc = pdfDoc_;
-      document.getElementById('page_count').textContent = pdfDoc.numPages;
-
-      // Initial/first page rendering
-      renderPage(pageNum);
-    });
   </script>
-
 
 </body>
 
