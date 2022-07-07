@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>MVP Anim</title>
+
+  <link href="css/anim-styles.css" rel="stylesheet">
+</head>
+
+<body>
+
+<section class="anim-section">
+  <div class="anim-wrapper">
+    <div class="anim-preloop-wrapper">
+      <video id="preloopvideo" autoplay muted playsinline preload="metadata">
+        <source src="videos/start-2-sm.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="anim-loop-wrapper">
+      <video id="loopvideo" muted loop playsinline preload="metadata">
+        <source src="videos/loop-2-sm.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
+</section>
+
+</body>
+
+
+<script>
+  const preLoopVideoWrapper = document.querySelector(".anim-preloop-wrapper");
+  const loopVideoPlayer = document.getElementById('loopvideo');
+
+  document.getElementById('preloopvideo').addEventListener('ended', handlePreLoopVideo, false);
+  function handlePreLoopVideo(e) {
+    preLoopVideoWrapper.style.display = "none";
+    loopVideoPlayer.play();
+  }
+</script>
+
+</html>
